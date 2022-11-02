@@ -5,9 +5,9 @@ spl_autoload_register(
     //função do php para fazer autoload.
     //spl: standard php library
     function ($nome_classe){
-        
-        include '../' . $nome_classe . '.php';
+        $classe = '../' . $nome_classe . '.php';
 
+        include $classe;
         /*
         //função anônima/lambda definida no parâmetro da função
         $classe_controller = 'controller/' . $nome_classe . ".php";
