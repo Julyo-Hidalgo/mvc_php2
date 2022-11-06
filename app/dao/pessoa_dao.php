@@ -20,8 +20,8 @@ class pessoa_dao{
     */
 
     public function __construct(){
-        $dns = "mysql:host=localhost:3306;dbname=mydb";
-        $this->conexao = new \PDO($dns, 'root', '06081016');
+        $dns = "mysql:host=" . $_ENV['db'] ['host'] . ";dbname=" . $_ENV['db']['name'];
+        $this->conexao = new \PDO($dns, $_ENV['db'] ['user'], $_ENV['db']['pwd'] );
         /* obrigado a especificar namespaces - PDO, sendo classe interna, fica no namespace geral */
     }
 
@@ -54,7 +54,7 @@ class pessoa_dao{
         $stmt->bindValue(1, $id);
         $stmt->execute();
 
-        return $stmt->fetchObject("pessoa_model");
+        return $stmt->fetchObject("app\model\pessoa_model");
     }
 
     public function update(pessoa_model $model){
