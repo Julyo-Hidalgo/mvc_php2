@@ -16,7 +16,10 @@ class pessoa_controller{
     public static function form(){
         include 'model/pessoa_model.php';
         $model = new pessoa_model();
-        $model = $model->get_by_id( (int) $_GET['id']);// converter para inteiro -> variável global get
+
+        //verificando se existe o parâmetro na url
+        if(isset($_GET['id']))
+            $model = $model->get_by_id( (int) $_GET['id']);// converter para inteiro -> variável global get
 
         //var_dump($model);//função pré definida do php para descrever variáveis
 

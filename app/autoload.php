@@ -5,7 +5,7 @@ spl_autoload_register(
     //função do php para fazer autoload.
     //spl: standard php library
     function ($nome_classe){
-        echo 'tentou dar include em: ' . $nome_classe;
+        //echo 'tentou dar include em: ' . $nome_classe;
         $classe = BASEDIR . $nome_classe . '.php';
 
         //substituindo backslash(\) por /
