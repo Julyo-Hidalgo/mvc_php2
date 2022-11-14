@@ -3,8 +3,8 @@
 namespace app\model;
 use app\dao\pessoa_dao;
 
-class pessoa_model{
-    public $id, $nome, $cpf, $data_nascimento, $rows;
+class pessoa_model extends model{
+    public $id, $nome, $cpf, $data_nascimento;
 
     public function save(){
         $dao = new pessoa_dao();

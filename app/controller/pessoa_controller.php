@@ -5,12 +5,14 @@ namespace app\controller;
 use app\model\pessoa_model;
 //especifica que está usando classe de outra namespace
 
-class pessoa_controller{
+class pessoa_controller extends controller{
     public static function index(){//retorna a listagem de pessoas
         $model = new pessoa_model();
         $model->get_all_rows();	
 
-        include 'view/modules/pessoa/lista.php';
+        parent::render('pessoa/lista', $model);
+
+        //include 'view/modules/pessoa/lista.php';
     }
 
     public static function form(){
@@ -23,7 +25,8 @@ class pessoa_controller{
 
         //var_dump($model);//função pré definida do php para descrever variáveis
 
-        include 'view/modules/pessoa/form.php';
+        parent::render('pessoa/form', $model);
+        //include 'view/modules/pessoa/form.php';
     }
 
     public static function save(){

@@ -9,9 +9,7 @@ use \PDO;
 /* Namespace - espaço para pôr  classes. Usado para diferenciar classes do programador das de terceiros.*/
 /* namespace geral é o app. o sub namespace é o dao */
 
-class pessoa_dao{
-    private $conexao;
-
+class pessoa_dao extends dao{
     /*crud completo
         insert -> create
         select -> read
@@ -20,9 +18,8 @@ class pessoa_dao{
     */
 
     public function __construct(){
-        $dns = "mysql:host=" . $_ENV['db'] ['host'] . ";dbname=" . $_ENV['db']['name'];
-        $this->conexao = new \PDO($dns, $_ENV['db'] ['user'], $_ENV['db']['pwd'] );
-        /* obrigado a especificar namespaces - PDO, sendo classe interna, fica no namespace geral */
+        parent::__construct();
+        /* operador para acessar métodos da superclasse */
     }
 
     public function insert(pessoa_model $model){
